@@ -7,6 +7,10 @@
     footer
 */
 
+/* все что касается блочной модели. дисплеи паддинги марджины бордеры геометрия
+потом цвет и текст
+потом оформительные эффекты */
+
 /* --------------- Common */
 
 :root {
@@ -22,6 +26,8 @@
   --logo-color-dark: #ffffff;
   --address-contact-color: rgba(255, 255, 255, 0.6);
   --address-map-color: #ffffff;
+
+  --item-gap: 30px;
 }
 
 body {
@@ -33,7 +39,36 @@ body {
 }
 
 .list {
+  padding: 0;
+  margin: 0;
   list-style: none;
+}
+
+.container {
+  width: 1200px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 /* END Common */
@@ -41,6 +76,9 @@ body {
 /* --------------- Logo */
 
 .logo {
+  display: inline-block;
+  padding:  10px;
+  margin-left: -10px;
   color: var(--logo-color);
   font-family: Raleway, sans-serif;
   font-weight: 700;
@@ -61,7 +99,45 @@ body {
 
 /* --------------- Header */
 
+.page-header {
+  border-bottom: 1px solid  #ECECEC;
+}
+
+.header-box {
+  display: flex;
+  align-items: center;
+}
+
+.site-nav {
+  margin-left: calc(93px - 25px);
+  margin-right: auto;
+}
+
+.site-nav-list,
+.contacts-nav {
+  display: flex;
+  margin-top: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+}
+
+.site-nav-item, 
+.contacts-nav-item {
+  display: block;
+ }
+
+/* .site-nav-item:not(:last-child), 
+.contacts-nav-item:not(:last-child) {
+  margin-right: 50px;
+} */
+
 .site-nav-link {
+  display: inline-block;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  padding-left: 25px;
+  padding-right: 25px;
   color: var(--title-text-color);
   font-weight: 500;
   font-size: 14px;
@@ -75,7 +151,16 @@ body {
   color: var(--accent-color);
 }
 
+.contacts-nav {
+  margin-right: -25px;
+}
+
 .contacts-nav-link {
+  display: inline-block;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  padding-left: 25px;
+  padding-right: 25px;
   color: var(--primary-text-color);
   font-weight: 500;
   font-size: 14px;
@@ -101,23 +186,36 @@ body {
 
 .hero {
   background-color: var(--dark-bg-color);
+  text-align: center;
+}
+
+.hero-box {
+  padding: 200px 252px;
 }
 
 .hero-title {
+  margin-top: 0;
+  
   color: var(--hero-title-color);
-
   font-weight: 900;
   font-size: 44px;
   line-height: 1.36;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+
 }
 
 .hero-btn {
+  display: inline-block;
+  padding: 10px 32px;
+  margin-top: 30px;
+  border-radius: 4px;
+  min-width: 200px;
+  
+  cursor: pointer;
+  text-align: center;
   background-color: var(--accent-color);
   color: var(--btn-text-color);
-
-  cursor: pointer;
   font-family: inherit;
   font-weight: 700;
   font-size: 16px;
@@ -135,21 +233,47 @@ body {
 
 /* --------------- For all Sections */
 
-.section-title {
-  color: var(--title-text-color);
+.section {
+  padding-top: 94px;
+  padding-bottom: 94px;
+}
 
+.section-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  
+  color: var(--title-text-color);
   font-weight: 700;
   font-size: 36px;
   line-height: 1.17;
+  text-align: center;
 }
 
 /* END for all Sections */
 
 /* --------------- Features */
+.features {
+  padding-bottom: 0;
+}
+
+.features-list {
+  display: flex;
+  padding-inline-start: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-left: calc(-1 * var(--item-gap));
+}
+
+.features-item {
+  flex-basis: calc(100%/4 - var(--item-gap));
+  margin-left: var(--item-gap);
+}
 
 .features-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  
   color: var(--title-text-color);
-
   font-weight: 700;
   font-size: 14px;
   line-height: 1.14;
@@ -157,27 +281,76 @@ body {
 }
 
 .features-text {
+  margin-top: 10px;
+  margin-bottom: 0;
+  
   font-size: 14px;
   line-height: 1.71;
 }
 
 /* END Features */
 
+/* --------------- Our Doings */
+
+.doings {
+  display: flex;
+  padding-inline-start: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-top: 50px;
+  margin-left: calc(-1 * var(--item-gap));
+}
+
+.doings-item {
+  margin-left: var(--item-gap);
+  flex-basis: calc(100%/3 - var(--item-gap));
+}
+
+/* END Our Doings */
+
 /* --------------- Our team */
 .team {
+  margin-bottom: 0;
+  
   background-color: var(--second-bg-color);
 }
 
+.team-list {
+  display: flex;
+  padding-inline-start: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-left: calc(-1 * var(--item-gap));
+  margin-top: 50px;
+}
+
+.team-item {
+  flex-basis: calc(100%/4 - var(--item-gap));
+  margin-left: var(--item-gap);
+}
+
+.team-content {
+  padding: 30px;
+}
+
 .team-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  
   color: var(--title-text-color);
   font-weight: 500;
   font-size: 16px;
   line-height: 1.19;
+  text-align: center;
 }
 
 .team-text {
+  margin-top: 10px;
+  margin-bottom: 0;
+
   font-size: 16px;
   line-height: 1.19;
+  text-align: center;
 }
 
 /* END our team */
@@ -186,10 +359,34 @@ body {
 
 /* --------------- PORTFOLIO */
 
+.portfolio {
+  padding-bottom: 94px;
+  padding-top: 94px;
+}
+
 /* --------------- Filtr */
 
+.filtr {
+  display: flex;
+  justify-content: center;
+  padding-inline-start: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.filtr-item:not(:last-child) {
+  margin-right: 8px;
+}
+
 .filtr-btn {
+  display: inline-block;
+  min-width: 73px;
+  border-radius: 4px;
+  padding: 6px 22px;
+  text-align: center;
+  
   background-color: var(--second-bg-color);
+  border: 1px solid var(--second-bg-color);
   color: var(--title-text-color);
   cursor: pointer;
   font-family: inherit;
@@ -201,6 +398,8 @@ body {
 
 .filtr-btn:hover,
 .filtr-btn:focus {
+  border: 1px solid var(--accent-color);
+  
   background-color: var(--accent-color);
   color: var(--btn-text-color);
 }
@@ -209,16 +408,41 @@ body {
 
 /* --------------- Examples */
 
-.portfolio-title {
-  color: var(--title-text-color);
+.examples {
+  display: flex;
+  flex-wrap: wrap;
+  padding-inline-start: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-left: calc(-1 * var(--item-gap));
+  margin-top: calc(-1 * var(--item-gap) + 50px);
+}
 
+.examples-item {
+  flex-basis: calc(100%/3 - var(--item-gap));
+  margin-left: var(--item-gap);
+  margin-top: var(--item-gap);
+}
+
+.examples-content {
+  border: 1px solid #EEEEEE;
+  padding: 20px 24px;
+}
+
+.examples-title {
+  margin: 0;
+  
+  color: var(--title-text-color);
   font-weight: 700;
   font-size: 18px;
   line-height: 2;
   letter-spacing: 0.06em;
 }
 
-.portfolio-desc {
+.examples-type {
+  margin-top: 4px;
+  margin-bottom: 0;
+  
   font-size: 16px;
   line-height: 1.86;
 }
@@ -230,7 +454,28 @@ body {
 /* --------------- Footer */
 
 .footer {
+  padding-top: 60px;
+  padding-bottom: 60px;
+
   background-color: var(--dark-bg-color);
+}
+
+.address {
+  margin-top: calc (20px - 10px - 4px);
+  padding-inline-start: 0;
+}
+
+.address-item:not(:first-child) {
+  margin-top: 1px;
+}
+
+.address-map,
+.address-contact {
+  display: inline-block;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-right: 4px;
+  padding-left: 4px;
 }
 
 .address-map {
